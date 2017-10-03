@@ -17,12 +17,17 @@ print_hi('Tom')
 #=> prints 'Hi, Tom' to STDOUT.
 {% endhighlight %}
 
+Jekyll also offers powerful support for code snippets: 
+
 ```csharp
 private void index(){
   MessageBox.Show("hello world");
 }
 ``` 
+### header 3 
 
+sasa 
+sa 
 ```javascript
 function fancyAlert(arg) {
   if(arg) {
