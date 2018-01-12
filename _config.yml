@@ -1,11 +1,6 @@
 # Site settings
 title: Lei's blog
-email: 
 description: "Machine Learning, AI and others"
-baseurl: ""
-url: ""
-twitter_username: 
-github_username:  
 
 # Build settings
 markdown: kramdown
