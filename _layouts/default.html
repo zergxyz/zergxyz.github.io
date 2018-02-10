@@ -3,19 +3,20 @@
 
   {% include head.html %}
 
-    <body>
+  <body>
 
     {% include header.html %}
 
     <div class="page-content">
-      <div class="wrap">
-      {{ content }}
+      <div class="wrapper">
+        {{ content }}
       </div>
     </div>
 
     {% include footer.html %}
+    {% if jekyll.environment == 'production' %}
+    {% include analytics.html %}
+    {% endif %}
+  </body>
 
-    <!-- mathjax -->
-    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    </body>
 </html>
