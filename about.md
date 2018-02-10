@@ -1,21 +1,18 @@
 ---
-title:      About
-layout:     page
-permalink:  /about.html
+layout: page
+title: About
+permalink: /about/
 ---
 
-My name is Daniel Seita, and I am a computer science Ph.D. student at the
-University of California, Berkeley. 
+This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
 
-If you want to get in touch: `seita@cs.berkeley.edu`. 
+You can find the source code for Minima at GitHub:
+[jekyll][jekyll-organization] /
+[minima](https://github.com/jekyll/minima)
 
-I also have an [academic website][1]. 
+You can find the source code for Jekyll at GitHub:
+[jekyll][jekyll-organization] /
+[jekyll](https://github.com/jekyll/jekyll)
 
-<p style="text-align:center;">
-<img src="{{site.url}}/assets/daniel_seita_washington_june_2016.jpg" height="400" width="400"
-alt="daniel"><br>
 
-Washington DC, 2016
-</p>
-
-[1]:https://people.eecs.berkeley.edu/~seita
+[jekyll-organization]: https://github.com/jekyll
