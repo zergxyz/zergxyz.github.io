@@ -2,52 +2,32 @@
 title: Why Academia?
 author: Daniel Seita
 layout: post
-permalink: /2011/08/01/why-academia/
+permalink: /2018/02/09/Intro to Image Classification/
 geo_public:
   - 0
 categories:
   - Computer Science
-tags:
-  - academia
-  - college
-  - introduction
 ---
 
-I guess I&#8217;ll make things clear right away. Working in academia can be very, very difficult.
-It&#8217;s hard to get paid to do research at a top school, with all the competition with the
-freshly minted PhD&#8217;s from last year and tenured professors in their seventies clogging up
-positions. Politics are rife, with tenure often being a measure of how your colleagues enjoy you
-rather than the true quality of research. You also have to deal with students, of which a select few
-will be whining at you, barraging you with complaints about grades &#8230;. Last, but not least, you
-don&#8217;t get to start being a professor (unless you&#8217;re extremely gifted and got a PhD at 25
-or younger) until you&#8217;re almost thirty, and that&#8217;s as an assistant professor with meager
-pay. So this begs the two-part question: Why do I want a career in academia, and why do I think
-it&#8217;s right for me?
+Image Classification problem, which is the task of assigning an input image one label from a fixed set of categories. This is one of the core problems in Computer Vision that, despite its simplicity, has a large variety of practical applications. 
 
-The first is that, as a deaf student, I don&#8217;t think I&#8217;d function well in many fields
-that my classmates at Williams seem to be gravitating towards. Investment banking, finance, private
-equity, and consulting seem to be all the rage here, and probably reflects how popular economics is
-as a major. I&#8217;m sure I could get a decent job and a living following the finance route, but
-that requires so much communication between me and clients, and I&#8217;m not sure if many would
-enjoy a deaf person working with them, all other things being equal. I think that, due to my natural
-tendency to study a lot of material in depth, I&#8217;m more suited towards graduate school and the
-PhD track. I&#8217;m primarily studying computer science, economics, mathematics at Williams, and
-I&#8217;m probably going to pursue a PhD in computer science. I don&#8217;t want a PhD in
-mathematics, since I&#8217;m not sure how well I&#8217;d be at conjuring new solutions to math
-problems, and I find computer science far more interesting. Economics is also interesting, but
-computer science may have more opportunities for me outside of academia should my quest to be a
-professor hit a severe gridlock. (I have backup plans!)
+Example--Cat in pixels. in the image below an image classification model takes a single image and assigns probabilities to 4 labels, {cat, dog, hat, mug}. As shown in the image, keep in mind that to a computer an image is represented as one large 3-dimensional array of numbers. In this example, the cat image is 248 pixels wide, 400 pixels tall, and has three color channels Red,Green,Blue (or RGB for short). Therefore, the image consists of 248 x 400 x 3 numbers, or a total of 297,600 numbers. Each number is an integer that ranges from 0 (black) to 255 (white). Our task is to turn this quarter of a million numbers into a single label, such as “cat”.
+![](http://cs231n.github.io/assets/classify.png)
 
-In that respect, Williams is a great place for me to start my prospective career. It&#8217;s a
-fantastic institution known for the quality of its research and the close interaction between
-students and faculty. The ratio is seven to one. I haven&#8217;t gotten involved in true research
-yet, but I&#8217;m hoping to start as early as the fall 2011 semester. I&#8217;ll probably ask
-around the computer science department and see if there&#8217;s any interest in a research assistant
-to help them with some grunt work. After all, I need to start somewhere. And in the summer of 2012,
-I hope to land a research internship at a Research Experience for Undergraduates (REU) in computer
-science. Unfortunately, Williams does not have a computer science REU &#8212; it has a very
-prestigious REU in mathematics &#8212; so I&#8217;ll have to apply elsewhere. I&#8217;ll have to aim
-*wide *since REU&#8217;s are super-competitive to get into. I would guess that almost all of them
-have acceptance ratios of 10 percent or less for students who are not already in that school. Ouch!
+Challenges for image classifcation: 
+* Viewpoint variation. A single instance of an object can be oriented in many ways with respect to the camera.
+* Scale variation. Visual classes often exhibit variation in their size (size in the real world, not only in terms of their extent in the image).
+* Deformation. Many objects of interest are not rigid bodies and can be deformed in extreme ways.
+* Occlusion. The objects of interest can be occluded. Sometimes only a small portion of an object (as little as few pixels) could be visible.
+* Illumination conditions. The effects of illumination are drastic on the pixel level.
+* Background clutter. The objects of interest may blend into their environment, making them hard to identify.
+* Intra-class variation. The classes of interest can often be relatively broad, such as chair. There are many different types of these objects, each with their own appearance.
 
-That&#8217;s looking far ahead in the future, though. I&#8217;ll update this more later.
+**Data Driven approach**:  instead of trying to specify what every one of the categories of interest look like directly in code, the approach that we will take is not unlike one you would take with a child: we’re going to provide the computer with many examples of each class and then develop learning algorithms that look at these examples and learn about the visual appearance of each class. 
+
+
+**The image classification pipeline.** We’ve seen that the task in Image Classification is to take an array of pixels that represents a single image and assign a label to it. Our complete pipeline can be formalized as follows:
+
+* Input: Our input consists of a set of N images, each labeled with one of K different classes. We refer to this data as the training set.
+* Learning: Our task is to use the training set to learn what every one of the classes looks like. We refer to this step as training a classifier, or learning a model.
+* Evaluation: In the end, we evaluate the quality of the classifier by asking it to predict labels for a new set of images that it has never seen before. We will then compare the true labels of these images to the ones predicted by the classifier. Intuitively, we’re hoping that a lot of the predictions match up with the true answers (which we call the ground truth).
