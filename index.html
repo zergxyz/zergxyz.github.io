@@ -10,16 +10,10 @@ layout: default
    <!--This loops through the paginated posts -->
   
   <ul class="post-list">
-    {% for post in paginator.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-        <h4>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h4>
-      </li>
+    {% for post in site.posts %}
+    * {{ post.date | date_to_string }} &raquo; [ {{ post.title }} ]({{ post.url }})
     {% endfor %}
   </ul>
-
 
 
 
